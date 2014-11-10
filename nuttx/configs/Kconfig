@@ -743,6 +743,16 @@ config ARCH_BOARD_STM32F100RC_GENERIC
 	---help---
 		STMicro STM32F100RC generic board.
 
+config ARCH_BOARD_STM32F103RGT6_GENERIC
+	bool "STMicro STM32F103RGT6 generic board"
+	depends on ARCH_CHIP_STM32F103RG
+	select ARCH_HAVE_LEDS
+	select ARCH_HAVE_BUTTONS
+	select ARCH_HAVE_IRQBUTTONS
+	---help---
+		STMicro STM32F103RGT6 generic board.
+
+		
 config ARCH_BOARD_STM32F3_DISCOVERY
 	bool "STMicro STM32F3-Discovery board"
 	depends on ARCH_CHIP_STM32F303VC
@@ -1086,6 +1096,7 @@ config ARCH_BOARD
 	default "stm3220g-eval"            if ARCH_BOARD_STM3220G_EVAL
 	default "stm3240g-eval"            if ARCH_BOARD_STM3240G_EVAL
 	default "stm32f100rc_generic"      if ARCH_BOARD_STM32F100RC_GENERIC
+	default "stm32f103rgt6_generic"    if ARCH_BOARD_STM32F103RGT6_GENERIC
 	default "stm32f3discovery"         if ARCH_BOARD_STM32F3_DISCOVERY
 	default "stm32f4discovery"         if ARCH_BOARD_STM32F4_DISCOVERY
 	default "stm32f429i-disco"         if ARCH_BOARD_STM32F429I_DISCO
@@ -1380,6 +1391,9 @@ source "configs/stm3240g-eval/Kconfig"
 endif
 if ARCH_BOARD_STM32F100RC_GENERIC
 source "configs/stm32f100rc_generic/Kconfig"
+endif
+if ARCH_BOARD_STM32F103RGT6_GENERIC
+source "configs/stm32f103rgt6_generic/Kconfig"
 endif
 if ARCH_BOARD_STM32F4_DISCOVERY
 source "configs/stm32f4discovery/Kconfig"
